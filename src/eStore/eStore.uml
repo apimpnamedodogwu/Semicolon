@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>eStore</OriginalElement>
+  <nodes>
+    <node x="762.6309494810478" y="452.1178827424847">eStore.Customer</node>
+    <node x="1037.162484358057" y="473.30705545958574">eStore.ShoppingCart</node>
+    <node x="133.63505396208146" y="152.71087340380288">eStore.CardType</node>
+    <node x="1259.6367833936088" y="14.507836458112834">eStore.ProductCategory</node>
+    <node x="759.1309494810478" y="0.2497257281769194">eStore.DeliveryAddress</node>
+    <node x="1255.1367833936088" y="239.80676116371023">eStore.Product</node>
+    <node x="761.1309494810478" y="595.6825485875586">eStore.Users</node>
+    <node x="395.0994146040385" y="440.30705545958574">eStore.BillingInfo</node>
+    <node x="106.63505396208146" y="439.3400880136404">eStore.CreditCardInformation</node>
+    <node x="1256.9003217670438" y="452.1178827424847">eStore.Items</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="eStore.Customer" target="eStore.Users" relationship="GENERALIZATION">
+      <point x="0.0" y="38.0" />
+      <point x="0.0" y="170.49999999999997" />
+    </edge>
+    <edge source="eStore.ShoppingCart" target="eStore.Items" relationship="TO_ONE">
+      <point x="71.5" y="0.0" />
+      <point x="1224.9803826543873" y="500.30705545958574" />
+      <point x="1224.9803826543873" y="466.34008801364035" />
+      <point x="-128.5" y="-46.2777947288443" />
+    </edge>
+    <edge source="eStore.Customer" target="eStore.ShoppingCart" relationship="TO_ONE">
+      <point x="98.5" y="20.027559521966282" />
+      <point x="1019.7008176202181" y="510.145442264451" />
+      <point x="1019.7008176202181" y="500.30705545958574" />
+      <point x="-71.5" y="0.0" />
+    </edge>
+    <edge source="eStore.BillingInfo" target="eStore.CreditCardInformation" relationship="TO_ONE">
+      <point x="-145.0" y="-3.6236252647619267" />
+      <point x="154.1357115462893" y="496.6834301948238" />
+      <point x="154.1357115462893" y="521.3400880136404" />
+      <point x="105.0" y="0.0" />
+    </edge>
+    <edge source="eStore.Items" target="eStore.Product" relationship="TO_ONE">
+      <point x="-14.26353837343504" y="-60.5" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="eStore.CreditCardInformation" target="eStore.CardType" relationship="TO_ONE">
+      <point x="97.5" y="-82.0" />
+      <point x="309.13505396208143" y="347.04235960794665" />
+      <point x="140.7823980989297" y="347.04235960794665" />
+      <point x="-84.35265586315177" y="82.50000000000001" />
+    </edge>
+    <edge source="eStore.Product" target="eStore.ProductCategory" relationship="TO_ONE">
+      <point x="-100.10766319325262" y="-71.0" />
+      <point x="1271.0291202003561" y="209.65729881091153" />
+      <point x="1371.1367833936088" y="209.65729881091153" />
+      <point x="0.0" y="82.5" />
+    </edge>
+    <edge source="eStore.Customer" target="eStore.BillingInfo" relationship="TO_ONE">
+      <point x="-98.5" y="0.0" />
+      <point x="640.2267966578654" y="490.1178827424847" />
+      <point x="640.2267966578654" y="464.6889032269122" />
+      <point x="145.0" y="-35.61815223267354" />
+    </edge>
+    <edge source="eStore.BillingInfo" target="eStore.DeliveryAddress" relationship="TO_ONE">
+      <point x="0.0" y="-60.0" />
+      <point x="540.0994146040384" y="181.7497257281769" />
+      <point x="-102.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8528481012658228" showDependencies="true" x="907.0" y="500.71428571428567" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
