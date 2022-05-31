@@ -33,7 +33,6 @@ public class Users {
     }
 
 
-
     public void setPassword(int password) {
         this.password = password;
     }
