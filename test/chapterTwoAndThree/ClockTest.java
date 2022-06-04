@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ClockTest {
     @Test
@@ -27,6 +28,17 @@ public class ClockTest {
         Assertions.assertEquals(54, myClock.getMinute());
         Assertions.assertEquals(55, myClock.getSecond());
 
+    }
+
+    @Test
+    public  void CheckElseStatement() {
+        Clock myClock = new Clock(9, 7, 5);
+        myClock.setMinute(75);
+        assertEquals(0, myClock.getMinute());
+        myClock.setHour(87);
+        assertEquals(0, myClock.getHour());
+        myClock.setSecond(99);
+        assertEquals(0, myClock.getSecond());
     }
 
     @Test

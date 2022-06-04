@@ -1,4 +1,4 @@
-import StudyPracticeChapterFive.AutoPolicy;
+import StudyPractice.StudyPracticeChapterFive.AutoPolicy;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

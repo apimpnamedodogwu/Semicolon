@@ -37,5 +37,13 @@ public class AccountTest {
         Assertions.assertEquals(9000, myAccount.getBalance());
     }
 
+    @Test
+    public void WithdrawForAccountTestTwo() {
+        Account myAccount = new Account();
+        myAccount.depositBalance(10000);
+        myAccount.withdrawBalance(5000);
+        assertEquals(5000, myAccount.getBalance());
+    }
+
 
 }

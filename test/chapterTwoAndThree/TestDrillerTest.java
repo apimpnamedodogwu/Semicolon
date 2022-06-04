@@ -11,7 +11,7 @@ public class TestDrillerTest {
     public void totalPriceTestOneToFour() {
         TestDriller price = new TestDriller();
         int amountForCopies = price.product( 2);
-        assertEquals(8000, amountForCopies);
+        assertEquals(4000, amountForCopies);
 
     }
 
