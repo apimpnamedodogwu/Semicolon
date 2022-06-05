@@ -2,46 +2,45 @@ package origin;
 
 import java.util.Scanner;
 
-    public class CalculateEnergy {
+public class CalculateEnergy {
 
-     / /main method
 
-         public static void main(String[] args) {
 
-           // declare the variables
+    public static void main(String[] args) {
 
-           double kilograms;
-           double intialtemperature;
-           double finaltemperature;
-           double joules;
-           
+        // declare the variables
 
-          // create Scanner to obtain input from user
+        double kilograms;
+        double intialtemperature;
+        double finaltemperature;
+        double joules;
 
-             Scanner input = new Scanner(System.in) ;
-        
-         // receive input from user
 
-             System.out.println( "Enter amount of water in kilograms" ) ;
-                   
-                      kilograms = input.nextDouble() ;
+        // create Scanner to obtain input from user
 
-             System.out.println( "Enter intial temperature of water" ) ;
+        Scanner input = new Scanner(System.in);
 
-                      intialtemperature = input.nextDouble() ;
+        // receive input from user
 
-             System.out.println( "Enter final temperature of water" ) ;
+        System.out.println("Enter amount of water in kilograms");
 
-                      finaltemperature = input.nextDouble() ;
+        kilograms = input.nextDouble();
 
-                   
+        System.out.println("Enter intial temperature of water");
 
-             joules = kilograms * (finaltemperature - intialtemperature) * 4184;
+        intialtemperature = input.nextDouble();
+
+        System.out.println("Enter final temperature of water");
+
+        finaltemperature = input.nextDouble();
+
+
+        joules = kilograms * (finaltemperature - intialtemperature) * 4184;
 
         // display result
 
-             System.out.println(joules) ;
+        System.out.println(joules);
 
-                             }
+    }
 
-                                  }
+}

@@ -23,7 +23,6 @@ public class TwoLargestNumbers {
         }
         System.out.printf("%d and %d.%n", secondLargest, firstLargest);
 
-
     }
 }
 

@@ -16,10 +16,11 @@ public class LargestNumber {
             System.out.println("Enter number here: ");
             number = input.nextInt();
             countNumber = countNumber + 1;
-        }
 
-        if (number > largest) {
-            System.out.printf("%d is the largest number.", number);
+            if (number > largest) {
+                largest = number;
+            }
         }
+        System.out.printf("%d is the largest number.", largest);
     }
 }

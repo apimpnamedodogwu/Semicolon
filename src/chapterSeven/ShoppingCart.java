@@ -13,7 +13,7 @@ public class ShoppingCart {
         counter += 1;
     }
 
-    public  int getCounter() {
+    public int getCounter() {
         return counter;
     }
 
@@ -29,7 +29,7 @@ public class ShoppingCart {
         quantity.add(quantityOfItems);
     }
 
-    public ArrayList<Integer> getQuantity () {
+    public ArrayList<Integer> getQuantity() {
         return quantity;
     }
 
@@ -53,8 +53,10 @@ public class ShoppingCart {
 
     public double discount(int percentageDiscountValue) {
         double disc = (double) percentageDiscountValue / 100;
-        double discountValueOnPrice = disc * Total();
-        return  discountValueOnPrice;
+        var total = Total();
+        double discountValueOnPrice = disc * total;
+
+        return discountValueOnPrice;
     }
 
     public double VATOnPrice() {
@@ -65,8 +67,8 @@ public class ShoppingCart {
 
     public double Total() {
         double total = 0;
-        for (int index = 0; index < counter; index++){
-                total += quantity.get(index) * pricePerUnit.get(index);
+        for (int index = 0; index < counter; index++) {
+            total += quantity.get(index) * pricePerUnit.get(index);
         }
         return total;
     }

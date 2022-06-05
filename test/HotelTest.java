@@ -1,4 +1,4 @@
-import Classwork.Hotel;
+import classwork.Hotel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

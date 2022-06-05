@@ -14,7 +14,7 @@ class BooleanComparisonTwoTest {
     }
 
     @Test
-    void TestComparisonMethod() {
+    void testComparisonMethod() {
         String[] firstArray = new String[10];
         firstArray[0] = "How are you?";
         firstArray[1] = "Are you a billionaire?";
@@ -25,15 +25,26 @@ class BooleanComparisonTwoTest {
 
         boolean result = varComp.comparisonTwo(firstArray, secondArray);
         assertTrue(result);
+    }
 
-        String[] thirdArray = new String[10];
-        thirdArray[0] = "Java no go kill me,";
+    @Test
+    void testComparisonMethodOne() {
+        String[] firstArray = new String[10];
+        String[] secondArray = new String[5];
 
-        String[] fourthArray = new String[5];
-        fourthArray[0] = "Na me go kill am.";
+        boolean result = varComp.comparisonTwo(firstArray, secondArray);
+        assertFalse(result);
+    }
 
-        boolean resultTwo = varComp.comparisonTwo(thirdArray, fourthArray);
-        assertFalse(resultTwo);
+    @Test
+    void testComparisonMethodTwo() {
+        String[] firstArray = new String[10];
+        firstArray[0] = "Java no go kill me,";
+        String[] secondArray = new String[10];
+        secondArray[0] = "Na me go kill am.";
+        boolean result = varComp.comparisonTwo(firstArray, secondArray);
+        assertFalse(result);
+
     }
 
 }

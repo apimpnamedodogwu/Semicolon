@@ -25,7 +25,7 @@ public class TaxCalculator {
                 double taxV1 = (double) earnings * taxRateTwo;
                 double taxV2 = 30000 * taxRateOne;
                 double sum = taxV1 + taxV2;
-                System.out.printf("Your total earning is %.2f%n", sum);
+                System.out.printf("Your total tax earning is %.2f%n", sum);
             }
 
         }
