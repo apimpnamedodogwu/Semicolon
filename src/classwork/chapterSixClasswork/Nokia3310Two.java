@@ -1,4 +1,4 @@
-package chapterSixClasswork;
+package classwork.chapterSixClasswork;
 
 import java.util.Scanner;
 

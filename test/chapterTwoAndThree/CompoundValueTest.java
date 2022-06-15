@@ -13,7 +13,7 @@ public class CompoundValueTest {
     }
 
     @Test
-    public void CompoundValueTest() {
+    public void CompoundValueTestTDD() {
         CompoundValue myValue = new CompoundValue();
         int result = myValue.compoundValueInterest(10000, 1, 9000);
         assertEquals(19000, result);
