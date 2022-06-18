@@ -55,27 +55,7 @@ public class Account {
         return Objects.equals(userPin, pin);
     }
 
-    public void transfer(String userPin, double amountToBeTransferred) {
-        if (!Objects.equals(pin, userPin)) {
-            System.out.println("Wrong pin. Try again.");
-            return;
-        }
-        if (pin == userPin) {
-            if (amountToBeTransferred > balance) {
-                System.out.println("Insufficient amount.");
-                return;
-            }
-            if (amountToBeTransferred < balance) {
-                balance = balance - amountToBeTransferred;
-            }
-        }
-    }
 
 
-//    public void transferNew(String accountNumber, String userPin, double amount, String receiverAccountNumber) {
-//        if (pin != userPin) {
-//
-//        }
-//    }
 
 }

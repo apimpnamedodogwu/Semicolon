@@ -22,5 +22,6 @@ public class comparator {
         } else {
             System.out.println(secondGreater);
         }
+
     }
 }
