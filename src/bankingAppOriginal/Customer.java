@@ -42,4 +42,8 @@ public class Customer {
                         ", age=" + age +
                         ", gender=" + gender;
     }
+
+    public static void resetId() {
+        bvnCount = 1;
+    }
 }

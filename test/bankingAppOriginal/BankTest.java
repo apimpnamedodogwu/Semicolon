@@ -32,9 +32,13 @@ class BankTest {
     @Test
     void testThatAccountCanBeClosed() {
         myBank.createAccount("Eden", "1234", "1111", 1);
+        myBank.createAccount("Mary-Ann", "1234", "2222", 2);
         myBank.closeAccount("1234", "1111");
+        myBank.closeAccount("1234", "2222");
         ArrayList<Account> result = myBank.getAccounts();
+        ArrayList<Account> resultTwo = myBank.getAccounts();
         assertEquals(0, result.size());
+        assertEquals(0, resultTwo.size());
     }
 
     @Test

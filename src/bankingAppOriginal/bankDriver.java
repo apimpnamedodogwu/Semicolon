@@ -9,7 +9,7 @@ public class bankDriver {
     private static final Scanner myKeyboard = new Scanner(System.in);
 
     public static void main(String[] args) {
-
+    myBank = new Bank();
 
         accountAndCustomerDummy();
 
