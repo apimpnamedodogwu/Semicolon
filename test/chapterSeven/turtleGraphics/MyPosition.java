@@ -24,6 +24,14 @@ public class MyPosition {
         return row == compare.getRow() && column == compare.getColumn();
     }
 
+    public void setColumnPosition(int column) {
+        this.column = column;
+    }
+
+    public void setRowPosition(int row) {
+        this.row = row;
+    }
+
     @Override
     public String toString() {
         return "MyPosition{" +
