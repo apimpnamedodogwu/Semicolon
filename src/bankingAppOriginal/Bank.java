@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Bank {
-    ArrayList<Account> accounts = new ArrayList<Account>();
-    ArrayList<Customer> customers = new ArrayList<Customer>();
+    private ArrayList<Account> accounts = new ArrayList<Account>();
+    private ArrayList<Customer> customers = new ArrayList<Customer>();
 
     public ArrayList<Account> getAccounts() {
         return accounts;

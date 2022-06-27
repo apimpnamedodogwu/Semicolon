@@ -4,12 +4,12 @@ package bankingAppOriginal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class bankDriver {
+public class Main {
     static Bank myBank;
     private static final Scanner myKeyboard = new Scanner(System.in);
 
     public static void main(String[] args) {
-    myBank = new Bank();
+        myBank = new Bank();
 
         accountAndCustomerDummy();
 
@@ -41,7 +41,8 @@ public class bankDriver {
                     case 2 -> {
                         System.out.println("Enter your Bank Verification Number: ");
                         int BVN = myKeyboard.nextInt();
-                        myBank.getACustomer(BVN);
+                        System.out.println(myBank.getACustomer(BVN));
+
                     }
                     case 3 -> {
                         System.out.println("""
@@ -59,7 +60,7 @@ public class bankDriver {
                     case 4 -> {
                         System.out.println("Enter account number: ");
                         String accountNumber = myKeyboard.next();
-                        myBank.getAnAccount(accountNumber);
+                        System.out.println(myBank.getAnAccount(accountNumber));
                     }
                     case 5 -> {
                         System.out.println("""
@@ -107,11 +108,21 @@ public class bankDriver {
                                 Enter account number:""");
                         String password = myKeyboard.next();
                         String accountNumber = myKeyboard.next();
-                        myBank.viewAccountBalance(password, accountNumber);
-                    }
-                    case 10 -> {
+                        System.out.println(myBank.viewAccountBalance(password, accountNumber));
 
                     }
+                    case 10 -> {
+                        for (var accounts : myBank.getAccounts()) {
+                            System.out.println(accounts);
+                        }
+                    }
+
+                    case 11 -> {
+                        for (var customers : myBank.getCustomers()) {
+                            System.out.println(customers);
+                        }
+                    }
+
                     case 0 -> sentinel = -1;
                     default -> main(args);
 
@@ -126,18 +137,11 @@ public class bankDriver {
     }
 
     private static void accountAndCustomerDummy() {
-        ArrayList<Account> myAccountList = new ArrayList<Account>();
-        ArrayList<Customer> myCustomerList = new ArrayList<>();
-        Account myAccount = new Account("Eden", "1234", "1111", 1);
-        Account myAccountTwo = new Account("Eden,", "1234", "2222", 1);
-        Account myAccountThree = new Account("Dorcas", "1235", "3333", 2);
-        Customer myCustomer = new Customer("Eden", Gender.FEMALE, 29);
-        Customer myCustomerTwo = new Customer("Dorcas", Gender.FEMALE, 29);
-        myAccountList.add(myAccount);
-        myAccountList.add(myAccountTwo);
-        myAccountList.add(myAccountThree);
-        myCustomerList.add(myCustomer);
-        myCustomerList.add(myCustomerTwo);
+        myBank.createAccount("Eden", "1234", "1111", 1);
+        myBank.createAccount("Eden", "1234", "2222", 1);
+        myBank.createAccount("Dorcas", "1235", "3333", 2);
+        myBank.registerACustomer("Eden", Gender.FEMALE, 29);
+        myBank.registerACustomer("Dorcas", Gender.FEMALE, 29);
 
     }
 
