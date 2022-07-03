@@ -16,6 +16,11 @@ class SchoolTest {
         mySchool = new School();
     }
 
+    @AfterEach
+    void tearDown() {
+        Student.resetId();
+    }
+
 
     @Test
     void getAllCourses() {
@@ -79,8 +84,11 @@ class SchoolTest {
     @Test
     void deleteStudent() {
         mySchool.addStudents("Grace");
+        mySchool.addStudents("Chibuzo");
+        mySchool.addStudents("Mofe");
         mySchool.deleteStudent(1);
-        assertEquals(0, mySchool.getStudents().size());
+        mySchool.deleteStudent(2);
+        assertEquals(1, mySchool.getStudents().size());
     }
 
     @Test

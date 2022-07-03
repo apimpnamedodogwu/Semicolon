@@ -10,7 +10,6 @@ public class Main {
 
     public static void main(String[] args) {
         myBank = new Bank();
-
         accountAndCustomerDummy();
 
         int sentinel = 0;
@@ -19,19 +18,22 @@ public class Main {
             while (sentinel != -1) {
 
                 System.out.println("""
+                        
                         Welcome to Ego Oyigbo International Bank!
-                        Press 1 -> to register as a customer.
-                        Press 2 -> to retrieve customer details.
-                        Press 3 -> to create an account.
-                        Press 4 -> retrieve account details.
-                        Press 5 -> to close an account.
-                        Press 6 -> to make a deposit.
-                        Press 7 -> to make a withdrawal.
-                        Press 8 -> to make a transfer.
-                        Press 9 -> to view account balance.
-                        Press 10 -> to view all accounts
-                        Press 11 -> to view all customers
-                        Press 0 -> to quit.
+                        Press 1 -> To register as a customer.
+                        Press 2 -> To retrieve customer details.
+                        Press 3 -> To create an account.
+                        Press 4 -> Retrieve account details.
+                        Press 5 -> To close an account.
+                        Press 6 -> To make a deposit.
+                        Press 7 -> To make a withdrawal.
+                        Press 8 -> To make a transfer.
+                        Press 9 -> To view account balance.
+                        Press 10 -> To view all accounts.
+                        Press 11 -> To view all customers
+                        Press 0 -> To quit.
+                        
+                        
                         """);
                 int userInput = myKeyboard.nextInt();
                 switch (userInput) {
@@ -140,8 +142,12 @@ public class Main {
         myBank.createAccount("Eden", "1234", "1111", 1);
         myBank.createAccount("Eden", "1234", "2222", 1);
         myBank.createAccount("Dorcas", "1235", "3333", 2);
+        myBank.createAccount("Chibuzo", "1235", "4444", 3);
+        myBank.createAccount("Mofe", "1235", "5555", 4);
         myBank.registerACustomer("Eden", Gender.FEMALE, 29);
         myBank.registerACustomer("Dorcas", Gender.FEMALE, 29);
+        myBank.registerACustomer("Chibuzo", Gender.MALE, 29);
+        myBank.registerACustomer("Mofe", Gender.NON_BINARY, 29);
 
     }
 

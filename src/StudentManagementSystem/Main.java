@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 
-public class SMSDriverClass {
+public class Main {
     static School school;
     static Student student;
 
@@ -67,6 +67,7 @@ public class SMSDriverClass {
                     String userResponseTwo = input.next();
                     student.dropCourse(userResponse, userResponseTwo);
                 }
+
                 case 0 -> sentinel = -1;
             }
         }

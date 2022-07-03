@@ -60,4 +60,8 @@ public class Student {
                 Student Id: %d
                 """, getName(), getId());
     }
+
+    public static void resetId() {
+        idNumber = 1;
+    }
 }
