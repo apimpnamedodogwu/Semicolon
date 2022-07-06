@@ -4,7 +4,7 @@ public interface List {
 
     boolean isEmpty();
 
-    void add(String item);
+    int add(String item);
 
     void remove(String item);
 
@@ -12,8 +12,9 @@ public interface List {
 
     String getIndex(int index);
 
-
     int capacity();
 
     boolean contains(String item);
+
+
 }

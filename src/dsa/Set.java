@@ -1,30 +1,31 @@
 package dsa;
 
 public class Set {
-    private ArrayList arrayList = new ArrayList();
 
-    public ArrayList getArrayList() {
-        return arrayList;
+    private Arraylist arraylist = new Arraylist();
+
+    public Arraylist getArraylist() {
+        return arraylist;
     }
 
 
     public boolean isEmpyty() {
-        return arrayList.isEmpty();
+        return arraylist.isEmpty();
     }
 
 
     public void add(String item) {
-        var result = arrayList.contains(item);
+        var result = arraylist.contains(item);
         if (!result) {
-            arrayList.add(item);
+            arraylist.add(item);
         }
     }
 
     public void remove(String item) {
-        arrayList.remove(item);
+        arraylist.remove(item);
     }
 
     public String get(int index) {
-        return arrayList.getIndex(index);
+        return arraylist.getIndex(index);
     }
 }

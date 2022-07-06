@@ -1,7 +1,5 @@
 package chapterSeven.turtleGraphics;
 
-import java.util.Objects;
-
 public class MyPosition {
     private int row;
     private int column;

@@ -27,8 +27,9 @@ class SetTest {
         mySet.add("Bread!");
         mySet.add("Bread!");
         mySet.add("Love");
-        var size = mySet.getArrayList();
+        var size = mySet.getArraylist();
         assertEquals(2, size.size());
+        assertFalse(mySet.isEmpyty());
     }
 
     @Test
@@ -36,8 +37,8 @@ class SetTest {
         mySet.add("Bread!");
         mySet.add("Bread!");
         mySet.add("Love");
-        mySet.remove(mySet.getArrayList().getIndex(0));
-        var size = mySet.getArrayList();
+        mySet.remove(mySet.getArraylist().getIndex(0));
+        var size = mySet.getArraylist();
         assertEquals(1, size.size());
     }
 
