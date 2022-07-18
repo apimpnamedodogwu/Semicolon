@@ -64,6 +64,7 @@ public class Arraylist implements List {
         return arraylist.length;
     }
 
+
     @Override
     public boolean contains(String item) {
         for (String anItem : arraylist) {
