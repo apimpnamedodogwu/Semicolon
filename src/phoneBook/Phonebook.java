@@ -6,8 +6,8 @@ public class Phonebook {
 
     HashMap<String, String> contacts = new HashMap<>();
 
-   static boolean valPhoneNumber(String phoneNumber) {
-        return phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '8' && phoneNumber.length() == 11 && phoneNumber.matches("[0 - 9]+");
+    boolean valPhoneNumber(String phoneNumber) {
+        return phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '8' && phoneNumber.length() == 11;
     }
 
     int size() {
@@ -15,23 +15,19 @@ public class Phonebook {
     }
 
     void addContact(String phoneNumber, String email) {
-
-
         if (valPhoneNumber(phoneNumber)) {
             if (contacts.containsKey(phoneNumber)) {
                 throw new PhonebookException(phoneNumber + " already exists! Input another!");
             } else {
-                contacts.put(email, phoneNumber);
+                contacts.put(phoneNumber, email);
                 return;
             }
         }
         throw new PhonebookException(phoneNumber + " is invalid!");
+    }
+
+    void deleteContact(String phoneNumber) {
 
     }
 
-    public static void main(String[] args) {
-       String phoneNumber = "08160577375";
-        var isValid = valPhoneNumber(phoneNumber);
-        System.out.println(isValid);
-    }
 }
