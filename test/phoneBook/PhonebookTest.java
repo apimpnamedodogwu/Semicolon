@@ -15,6 +15,7 @@ class PhonebookTest {
     @Test
     void addContact() {
         phonebook.addContact("08160577375", "eden.kwinesta@mail.com");
+
         assertEquals(1, phonebook.size());
     }
 }
