@@ -78,8 +78,8 @@ class StackImplementationTest {
     void testThatStackCanBePeekedInto() {
         forEden.push(1);
         forEden.push(2);
-        forEden.push(3);
+        forEden.push(4);
         var peeked = forEden.peek();
-        assertEquals(3, peeked);
+        assertEquals(4, peeked);
     }
 }
