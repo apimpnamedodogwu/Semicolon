@@ -20,6 +20,7 @@ public class Phonebook {
             if (contacts.containsKey(phoneNumber)) {
                 name.setPhoneNumber(phoneNumber);
                 name.setName(name.getName());
+                name.setEmail(name.getEmail());
             } else {
                 contacts.put(phoneNumber, name);
             }
