@@ -10,11 +10,6 @@ public class Phonebook {
         return phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '8' && phoneNumber.length() == 11;
     }
 
-    String nameValidation(String name) {
-        if (name.isBlank()) {
-            throw new PhonebookException("Name cannot be empty!");
-        } else return name;
-    }
 
     int size() {
         return contacts.size();
@@ -25,8 +20,7 @@ public class Phonebook {
             if (contacts.containsKey(phoneNumber)) {
                 name.setPhoneNumber(phoneNumber);
                 name.setName(name.getName());
-            }
-            else {
+            } else {
                 contacts.put(phoneNumber, name);
             }
             return;
@@ -48,6 +42,7 @@ public class Phonebook {
         }
         throw new PhonebookException(phoneNumber + " does not exist!");
     }
+
     HashMap<String, Contact> getAllContacts() {
         return contacts;
     }
