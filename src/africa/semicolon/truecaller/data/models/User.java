@@ -16,7 +16,7 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getSecondName() {
+    public String getLastName() {
         return secondName;
     }
 
