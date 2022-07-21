@@ -1,5 +1,7 @@
 package africa.semicolon.truecaller.data.models;
 
+import java.util.List;
+
 public class Contact {
 
     private int id;
@@ -7,6 +9,7 @@ public class Contact {
     private String secondName;
     private String phoneNumber;
     private String email;
+
 
     public String getFirstName() {
         return firstName;
