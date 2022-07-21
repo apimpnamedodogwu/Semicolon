@@ -2,7 +2,6 @@ package phoneBook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PhonebookTest {
@@ -10,6 +9,7 @@ class PhonebookTest {
     Contact myContact;
     Contact myContactThree;
     Contact myContactTwo;
+
     @BeforeEach
     void setPhonebook() {
         phonebook = new Phonebook();
@@ -43,7 +43,7 @@ class PhonebookTest {
 
 
     @Test
-    void addContactExceptionTwo() {
+    void addContactException() {
         assertThrows(PhonebookException.class,
                 () -> phonebook.addContact("09160577375", myContact));
         assertThrows(PhonebookException.class,
@@ -79,8 +79,8 @@ class PhonebookTest {
         phonebook.addContact("08160577375", myContact);
         phonebook.addContact("08121537524", myContactTwo);
         phonebook.addContact("08067945785", myContactThree);
-//        System.out.println(myContact);
         assertEquals(myContact, phonebook.getAllContacts().get("08160577375"));
     }
+
 
 }

@@ -5,6 +5,7 @@ import africa.semicolon.truecaller.data.models.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class UserRepositoriesImplementation implements UserRepositories {
     private int counter;
@@ -17,7 +18,6 @@ public class UserRepositoriesImplementation implements UserRepositories {
             if (aUser.getId() == myUser) {
                 aUser.setFirstName(user.getFirstName());
                 aUser.setSecondName(user.getLastName());
-                aUser.setAddress(user.getAddress());
                 aUser.setEmail(user.getEmail());
                 aUser.setPhoneNumber(user.getPhoneNumber());
                 return aUser;
@@ -86,5 +86,12 @@ public class UserRepositoriesImplementation implements UserRepositories {
         return users.size();
     }
 
-
+    @Override
+    public User findByEmail(String email) {
+        for (User aUser : users) {
+            if (Objects.equals(aUser.getEmail(), email)) {
+                return aUser;
+            }
+        } return null;
+    }
 }

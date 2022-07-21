@@ -24,8 +24,9 @@ class UserRepositoriesImplementationTest {
         myUser.setSecondName("Elenwoke");
         myUser.setEmail("eden.kwinesta@gmail.com");
         myUser.setPhoneNumber("08160577375");
-        myUser.setAddress("10, Emily Akinola Street");
+
         userRepositories.save(myUser);
+        assertEquals(myUser, userRepositories.findById(1));
         assertEquals(1, userRepositories.count());
     }
 
@@ -35,7 +36,7 @@ class UserRepositoriesImplementationTest {
         myUser.setSecondName("Elenwoke");
         myUser.setEmail("eden.kwinesta@gmail.com");
         myUser.setPhoneNumber("08160577375");
-        myUser.setAddress("10, Emily Akinola Street");
+
         userRepositories.save(myUser);
         myUser.setFirstName("Chimaraobim");
         userRepositories.save(myUser);
@@ -48,14 +49,14 @@ class UserRepositoriesImplementationTest {
         myUser.setSecondName("Elenwoke");
         myUser.setEmail("eden.kwinesta@gmail.com");
         myUser.setPhoneNumber("08160577375");
-        myUser.setAddress("10, Emily Akinola Street");
+
         userRepositories.save(myUser);
 
         myUserTwo.setFirstName("Daniel");
         myUserTwo.setSecondName("Elenwoke");
         myUserTwo.setEmail("danielenwoke@gmail.com");
         myUserTwo.setPhoneNumber("08121537524");
-        myUserTwo.setAddress("FUTO");
+
         userRepositories.save(myUserTwo);
 
         userRepositories.delete(myUserTwo);
@@ -74,14 +75,13 @@ class UserRepositoriesImplementationTest {
         myUser.setSecondName("Elenwoke");
         myUser.setEmail("eden.kwinesta@gmail.com");
         myUser.setPhoneNumber("08160577375");
-        myUser.setAddress("10, Emily Akinola Street");
+
         userRepositories.save(myUser);
 
         myUserTwo.setFirstName("Daniel");
         myUserTwo.setSecondName("Elenwoke");
         myUserTwo.setEmail("danielenwoke@gmail.com");
         myUserTwo.setPhoneNumber("08121537524");
-        myUserTwo.setAddress("FUTO");
         userRepositories.save(myUserTwo);
 
         userRepositories.delete(2);
@@ -94,7 +94,6 @@ class UserRepositoriesImplementationTest {
         myUserTwo.setSecondName("Elenwoke");
         myUserTwo.setEmail("danielenwoke@gmail.com");
         myUserTwo.setPhoneNumber("08121537524");
-        myUserTwo.setAddress("FUTO");
         userRepositories.save(myUserTwo);
         userRepositories.findById(1);
         assertEquals("Daniel", myUserTwo.getFirstName());
@@ -106,9 +105,7 @@ class UserRepositoriesImplementationTest {
         myUserTwo.setSecondName("Elenwoke");
         myUserTwo.setEmail("danielenwoke@gmail.com");
         myUserTwo.setPhoneNumber("08121537524");
-        myUserTwo.setAddress("FUTO");
         userRepositories.save(myUserTwo);
-
         assertEquals("Daniel", myUserTwo.getFirstName());
     }
 
@@ -118,13 +115,12 @@ class UserRepositoriesImplementationTest {
         myUserTwo.setSecondName("Elenwoke");
         myUserTwo.setEmail("danielenwoke@gmail.com");
         myUserTwo.setPhoneNumber("08121537524");
-        myUserTwo.setAddress("FUTO");
         userRepositories.save(myUserTwo);
         myUser.setFirstName("Eden");
         myUser.setSecondName("Elenwoke");
         myUser.setEmail("eden.kwinesta@gmail.com");
         myUser.setPhoneNumber("08160577375");
-        myUser.setAddress("10, Emily Akinola Street");
+
         userRepositories.save(myUser);
 
         assertEquals("Elenwoke", myUserTwo.getLastName());
@@ -137,16 +133,12 @@ class UserRepositoriesImplementationTest {
         myUser.setSecondName("Elenwoke");
         myUser.setEmail("eden.kwinesta@gmail.com");
         myUser.setPhoneNumber("08160577375");
-        myUser.setAddress("10, Emily Akinola Street");
         userRepositories.save(myUser);
-
         myUserTwo.setFirstName("Daniel");
         myUserTwo.setSecondName("Elenwoke");
         myUserTwo.setEmail("danielenwoke@gmail.com");
         myUserTwo.setPhoneNumber("08121537524");
-        myUserTwo.setAddress("FUTO");
         userRepositories.save(myUserTwo);
-
 
         assertEquals(2, userRepositories.count());
     }

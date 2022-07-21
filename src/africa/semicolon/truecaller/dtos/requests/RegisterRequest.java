@@ -1,13 +1,12 @@
-package africa.semicolon.truecaller.data.models;
+package africa.semicolon.truecaller.dtos.requests;
 
-public class User {
-    private int id;
+public class RegisterRequest {
     private String firstName;
-    private String secondName;
-    private String phoneNumber;
-
+    private String lastName;
     private String email;
+    private String phoneNumber;
     private String password;
+
 
     public String getFirstName() {
         return firstName;
@@ -18,19 +17,11 @@ public class User {
     }
 
     public String getLastName() {
-        return secondName;
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -41,13 +32,12 @@ public class User {
         this.email = email;
     }
 
-
-    public int getId() {
-        return id;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getPassword() {
@@ -57,5 +47,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

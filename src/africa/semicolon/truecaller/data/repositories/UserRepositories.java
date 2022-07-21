@@ -4,6 +4,7 @@ import africa.semicolon.truecaller.data.models.Contact;
 import africa.semicolon.truecaller.data.models.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRepositories {
     User save(User user);
@@ -14,5 +15,5 @@ public interface UserRepositories {
     List<User> findByLastName(String lastName);
     List<User> findAll();
     int count();
-
+    User findByEmail(String email);
 }
