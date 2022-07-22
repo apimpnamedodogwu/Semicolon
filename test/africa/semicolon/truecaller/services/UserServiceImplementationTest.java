@@ -95,7 +95,7 @@ class UserServiceImplementationTest {
             request.setPhoneNumber("08160577375");
             request.setPassword("12345678");
             userServiceImplementation.register(request);
-//            assertEquals(myUser, userRepositoriesImplementation.findById(1));
+            var user = userRepositoriesImplementation.findById(1);
     }
 
 }
