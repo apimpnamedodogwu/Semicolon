@@ -12,21 +12,23 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UserServiceImplementationTest {
     UserServiceImplementation userServiceImplementation;
-    UserRepositoriesImplementation userRepositoriesImplementation;
     RegisterRequest request;
     RegisterRequest requestTwo;
     Contact myContact;
+    Contact myContactTwo;
     User myUser;
+
     @BeforeEach
     void setUserServiceImplementation() {
         request = new RegisterRequest();
         requestTwo = new RegisterRequest();
         userServiceImplementation = new UserServiceImplementation();
-        userRepositoriesImplementation = new UserRepositoriesImplementation();
         myContact = new Contact();
+        myContactTwo = new Contact();
         myUser = new User();
     }
 
@@ -89,13 +91,68 @@ class UserServiceImplementationTest {
 
     @Test
     void testThatUserContactCanBeCreated() {
-            request.setFirstName("Eden");
-            request.setLastName("Elenwoke");
-            request.setEmail("eden.kwinesta@gmail.com");
-            request.setPhoneNumber("08160577375");
-            request.setPassword("12345678");
-            userServiceImplementation.register(request);
-            var user = userRepositoriesImplementation.findById(1);
+        request.setFirstName("Eden");
+        request.setLastName("Elenwoke");
+        request.setEmail("eden.kwinesta@gmail.com");
+        request.setPhoneNumber("08160577375");
+        request.setPassword("12345678");
+        userServiceImplementation.register(request);
+        User mikeUser = userServiceImplementation.findUser(1);
+        myContact.setFirstName(request.getFirstName());
+        myContact.setSecondName(request.getLastName());
+        myContact.setEmail(request.getEmail());
+        myContact.setPhoneNumber(request.getPhoneNumber());
+        userServiceImplementation.createAUsersContact(myContact, mikeUser.getId());
+        assertEquals(1, mikeUser.getContacts().size());
+    }
+
+    @Test
+    void testThatUsersContactCanBeReturned() {
+        request.setFirstName("Eden");
+        request.setLastName("Elenwoke");
+        request.setEmail("eden.kwinesta@gmail.com");
+        request.setPhoneNumber("08160577375");
+        request.setPassword("12345678");
+        userServiceImplementation.register(request);
+        User mikeUser = userServiceImplementation.findUser(1);
+        myContact.setFirstName(request.getFirstName());
+        myContact.setSecondName(request.getLastName());
+        myContact.setEmail(request.getEmail());
+        myContact.setPhoneNumber(request.getPhoneNumber());
+        userServiceImplementation.createAUsersContact(myContact, mikeUser.getId());
+        myContactTwo.setFirstName("Michael");
+        myContactTwo.setSecondName(request.getLastName());
+        myContactTwo.setEmail("michaelboyo@gmail.com");
+        myContactTwo.setPhoneNumber("08038274399");
+        userServiceImplementation.createAUsersContact(myContactTwo, mikeUser.getId());
+        assertEquals(2, mikeUser.getContacts().size());
+        var userContact = userServiceImplementation.getUsersContacts(1);
+        assertEquals(myContactTwo.getEmail(), userContact.get(1).getEmail());
+
+
+    }
+
+    @Test
+    void testThatUserCanDeleteContact() {
+        request.setFirstName("Eden");
+        request.setLastName("Elenwoke");
+        request.setEmail("eden.kwinesta@gmail.com");
+        request.setPhoneNumber("08160577375");
+        request.setPassword("12345678");
+        userServiceImplementation.register(request);
+        User mikeUser = userServiceImplementation.findUser(1);
+        myContact.setFirstName(request.getFirstName());
+        myContact.setSecondName(request.getLastName());
+        myContact.setEmail(request.getEmail());
+        myContact.setPhoneNumber(request.getPhoneNumber());
+        userServiceImplementation.createAUsersContact(myContact, mikeUser.getId());
+        myContactTwo.setFirstName("Michael");
+        myContactTwo.setSecondName(request.getLastName());
+        myContactTwo.setEmail("michaelboyo@gmail.com");
+        myContactTwo.setPhoneNumber("08038274399");
+        userServiceImplementation.createAUsersContact(myContactTwo, mikeUser.getId());
+        userServiceImplementation.deleteUsersContact(myContactTwo, mikeUser.getId());
+        assertEquals(1, mikeUser.getContacts().size());
     }
 
 }

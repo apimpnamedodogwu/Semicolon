@@ -6,10 +6,12 @@ import africa.semicolon.truecaller.data.repositories.ContactRepositoriesImplemen
 import africa.semicolon.truecaller.data.repositories.UserRepositoriesImplementation;
 import africa.semicolon.truecaller.dtos.requests.RegisterRequest;
 import africa.semicolon.truecaller.services.CMSExceptions.EmptyFieldException;
+import africa.semicolon.truecaller.services.CMSExceptions.InvalidContactException;
 import africa.semicolon.truecaller.services.CMSExceptions.InvalidPasswordException;
 import africa.semicolon.truecaller.services.CMSExceptions.InvalidPhoneNumberException;
 import africa.semicolon.truecaller.services.validateRequest.ValidateRegisterRequest;
 
+import java.util.List;
 import java.util.Objects;
 
 public class UserServiceImplementation implements UserService {
@@ -77,8 +79,34 @@ public class UserServiceImplementation implements UserService {
                 aContact.setEmail(verifiedContact.getEmail());
                 return;
             }
-            usersContactList.add(contact);
-            contactRepositoriesImplement.save(contact);
+
         }
+        usersContactList.add(contact);
+        contactRepositoriesImplement.save(contact);
+    }
+
+    @Override
+    public User findUser(int id) {
+        return userRepositoriesImplementation.findById(id);
+    }
+
+    @Override
+    public List<Contact> getUsersContacts(int id) {
+        var user = userRepositoriesImplementation.findById(id);
+        return user.getContacts();
+    }
+
+    @Override
+    public void deleteUsersContact(Contact contact, int userId) {
+        var user = userRepositoriesImplementation.findById(userId);
+        var usersContactList = user.getContacts();
+        for (Contact aContact : usersContactList) {
+            if (Objects.equals(aContact.getEmail(), contact.getEmail())) {
+                usersContactList.remove(contact);
+                contactRepositoriesImplement.delete(contact);
+                return;
+            }
+        }
+        throw new InvalidContactException("This " + contact + " does not exist!");
     }
 }
