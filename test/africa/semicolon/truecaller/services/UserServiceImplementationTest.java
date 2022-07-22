@@ -5,6 +5,7 @@ import africa.semicolon.truecaller.data.models.User;
 import africa.semicolon.truecaller.data.repositories.UserRepositoriesImplementation;
 import africa.semicolon.truecaller.dtos.requests.RegisterRequest;
 import africa.semicolon.truecaller.services.CMSExceptions.EmptyFieldException;
+import africa.semicolon.truecaller.services.CMSExceptions.InvalidContactException;
 import africa.semicolon.truecaller.services.CMSExceptions.InvalidPasswordException;
 import africa.semicolon.truecaller.services.CMSExceptions.InvalidPhoneNumberException;
 import africa.semicolon.truecaller.services.validateRequest.ValidateRegisterRequest;
@@ -129,7 +130,6 @@ class UserServiceImplementationTest {
         var userContact = userServiceImplementation.getUsersContacts(1);
         assertEquals(myContactTwo.getEmail(), userContact.get(1).getEmail());
 
-
     }
 
     @Test
@@ -155,4 +155,17 @@ class UserServiceImplementationTest {
         assertEquals(1, mikeUser.getContacts().size());
     }
 
+    @Test
+    void testThatDeleteExceptionIsThrown() {
+        request.setFirstName("Eden");
+        request.setLastName("Elenwoke");
+        request.setEmail("eden.kwinesta@gmail.com");
+        request.setPhoneNumber("08160577375");
+        request.setPassword("12345678");
+        userServiceImplementation.register(request);
+        User mikeUser = userServiceImplementation.findUser(1);
+        assertThrows(InvalidContactException.class,
+                () -> userServiceImplementation.deleteUsersContact(myContactTwo, mikeUser.getId()));
+
+    }
 }
