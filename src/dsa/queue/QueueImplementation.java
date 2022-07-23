@@ -2,15 +2,15 @@ package dsa.queue;
 
 public class QueueImplementation implements Queue {
     private int pushArray[] = new int[5];
-    private int removeArray[] = new int[5];
     private int capacity = pushArray.length;
-    private int size = -1;
+    private int top = 0;
+    private int rear = -1;
+    private int count;
 
     private int[] reverseArray() {
-        int firstArray[] = new int[pushArray.length];
-        int secondArray[] = new int[firstArray.length];
+        int[] secondArray = new int[pushArray.length];
         for (int index = 0; index < secondArray.length; index++) {
-            secondArray[index] = firstArray[firstArray.length - 1 - index];
+            secondArray[index] = pushArray[pushArray.length - 1 - index];
         }
         return secondArray;
     }
@@ -19,35 +19,39 @@ public class QueueImplementation implements Queue {
     public void push(int element) {
         if (isFull()) {
             throw new RuntimeException();
-        } else pushArray[++size] = element;
+        }
+        pushArray[++rear] = element;
+        count++;
     }
 
     @Override
     public int pop() {
+        int item;
         if (isEmpty()) {
-            var copiedArray = reverseArray();
-            return copiedArray[size--];
+            throw new RuntimeException();
         }
-        throw new RuntimeException();
+        item = pushArray[top++];
+        count--;
+        return item;
     }
 
     @Override
     public int peek() {
-        return 0;
+        return pushArray[top];
     }
 
     @Override
     public boolean isEmpty() {
-        return size == -1;
+        return queueSize() == 0;
     }
 
     @Override
     public boolean isFull() {
-        return size == capacity - 1;
+        return queueSize() == capacity;
     }
 
     @Override
     public int queueSize() {
-        return size + 1;
+        return count;
     }
 }
