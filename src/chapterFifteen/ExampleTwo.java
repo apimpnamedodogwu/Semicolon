@@ -14,7 +14,7 @@ public class ExampleTwo {
             String sentence = bufferedReader.readLine();
             printStream.println(sentence.toUpperCase());
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
